@@ -4,7 +4,7 @@
 
 knowbe4.py is a basic Python wrapper for the KnowBe4 reporting API. 
 
-For more information on the API, please visit the (KnowBe4 API documentation)[https://developer.knowbe4.com/].
+For more information on the API, please visit the [KnowBe4 API documentation](https://developer.knowbe4.com/).
 
 ## Installation
 
