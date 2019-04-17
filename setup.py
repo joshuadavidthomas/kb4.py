@@ -11,6 +11,7 @@ setup(
   ],
   tests_require=[
     'pytest',
+    'vcrpy',
   ],
   license='LICENSE.md',
   packages=['kb4']
