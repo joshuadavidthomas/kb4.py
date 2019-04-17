@@ -1,0 +1,10 @@
+image: python:3.6
+
+stages:
+  - test
+
+test:
+  script:
+    - apk add --update py-pip
+    - pip install -r requirements.txt
+    - pytest
