@@ -22,6 +22,7 @@ install_dependencies:
   script:
     - apt-get update -qy
     - pip install -r requirements.txt
+    - pip install codecov
   artifacts:
     paths:
       - .cache/pip
@@ -29,4 +30,9 @@ install_dependencies:
 
 test:
   stage: test
-  script: pytest
+  script: 
+  - pytest
+  - coverage run tests.py
+
+after_success:
+  - codecov
