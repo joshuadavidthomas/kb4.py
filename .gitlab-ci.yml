@@ -16,13 +16,13 @@ before_script:
 stages:
   - build
   - test
-  - post-test
 
 install_dependencies:
   stage: build
   script:
     - apt-get update -qy
     - pip install -r requirements.txt
+    - pip install codecov
   artifacts:
     paths:
       - .cache/pip
@@ -32,15 +32,4 @@ test:
   stage: test
   script: 
   - pytest --cov=./
-  artifacts:
-    paths:
-      - .cache/pip
-      - venv/
-
-run_codecov:
-  stage: post-test
-  script: codecov --token=$CODECOV_TOKEN
-  artifacts:
-    paths:
-      - .cache/pip
-      - venv/
+  - codecov --token=$CODECOV_TOKEN
