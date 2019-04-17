@@ -5,6 +5,6 @@ stages:
 
 test:
   script:
-    - apk add --update py-pip
+    - apt-get update -qy
     - pip install -r requirements.txt
     - pytest
