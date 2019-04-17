@@ -12,10 +12,13 @@ before_script:
   - python -V
   - python -m venv venv
   - source venv/bin/activate
+
 stages:
+  - build
   - test
 
-test:
+install_dependencies:
+  stage: build
   script:
     - apt-get update -qy
     - pip install -r requirements.txt
@@ -23,3 +26,7 @@ test:
     paths:
       - .cache/pip
       - venv/
+
+test:
+  stage: test
+  script: pytest
