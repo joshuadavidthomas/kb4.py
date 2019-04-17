@@ -32,4 +32,4 @@ test:
   stage: test
   script: 
   - pytest --cov=./
-  - codecov --token=CODECOV_TOKEN
+  - codecov --token=$CODECOV_TOKEN
