@@ -11,6 +11,7 @@ setup(
   ],
   tests_require=[
     'pytest',
+    'python-dotenv',
     'vcrpy',
   ],
   license='LICENSE.md',
