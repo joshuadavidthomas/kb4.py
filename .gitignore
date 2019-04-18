@@ -6,3 +6,6 @@ __pycache__
 old
 .env
 tests/cassettes
+build
+dist
+.pytest_cache
