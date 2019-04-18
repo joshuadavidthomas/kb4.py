@@ -19,6 +19,7 @@ before_script:
 stages:
   - build
   - test
+  - deploy
 
 install_dependencies:
   stage: build
