@@ -12,6 +12,9 @@ before_script:
   - python -V
   - python -m venv venv
   - source venv/bin/activate
+  - pip install --upgrade setuptools wheel
+  - pip install twine
+  - python setup.py sdist bdist_wheel
 
 stages:
   - build
@@ -33,3 +36,23 @@ test:
   script: 
   - pytest --cov=./
   - codecov --token=$CODECOV_TOKEN
+
+deploy_staging:
+  stage: deploy
+  variables:
+    TWINE_USERNAME: $STAGING_USERNAME
+    TWINE_PASSWORD: $STAGING_PASSWORD
+  script:
+    - twine upload --repository-url $PACKAGR_REPOSITORY_URL dist/*
+  except:
+    - tags
+
+deploy_production:
+  stage: deploy
+  variables:
+    TWINE_USERNAME: $PRODUCTION_USERNAME
+    TWINE_PASSWORD: $PRODUCTION_PASSWORD
+  script:
+    - twine upload dist/*
+  only:
+    - tags
