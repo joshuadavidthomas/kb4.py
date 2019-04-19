@@ -57,107 +57,70 @@ class KnowBe4(object):
     def _get(self, url):
         return self._request('GET', url)
 
-    def account(self):
-        url = self._build_url('account')
+    def _api_call(self, *args, **kwargs):
+        url = self._build_url(*args)
         json = self._json(self._get(url))
         return json
+
+    def account(self):
+        return self._api_call('account')
 
     def users(self):
-        url = self._build_url('users')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('users')
 
     def groups(self):
-        url = self._build_url('groups')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('groups')
 
     def group(self, id):
-        url = self._build_url('groups', id)
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('groups', id)
 
     def group_members(self, id):
-        url = self._build_url('groups', id, 'members')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('groups', id, 'members')
 
     def user(self, id):
-        url = self._build_url('users', id)
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('users', id)
 
     def phishing_campaigns(self):
-        url = self._build_url('phishing', 'campaigns')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('phishing', 'campaigns')
 
     def phishing_campaign(self, id):
-        url = self._build_url('phishing', 'campaigns', id)
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('phishing', 'campaigns', id)
 
     def phishing_security_tests(self):
-        url = self._build_url('phishing', 'security_tests')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('phishing', 'security_tests')
 
     def phishing_campaign_security_tests(self, id):
-        url = self._build_url('phishing', 'campaigns', id, 'security_tests')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('phishing', 'campaigns', id, 'security_tests')
 
     def phishing_campaign_security_test(self, id):
-        url = self._build_url('phishing', 'security_tests', id)
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('phishing', 'security_tests', id)
 
     def phishing_campaign_security_test_recipients(self, id):
-        url = self._build_url('phishing', 'security_tests', id, 'recipients')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('phishing', 'security_tests', id, 'recipients')
 
     def phishing_campaign_security_test_recipient(self, pst_id, id):
-        url = self._build_url('phishing', 'security_tests', pst_id, 'recipients', id)
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('phishing', 'security_tests', pst_id, 'recipients', id)
 
     def store_purchases(self):
-        url = self._build_url('training', 'store_purchases')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('training', 'store_purchases')
 
     def store_purchase(self, id):
-        url = self._build_url('training', 'store_purchases', id)
-        json = self._json(self._get(url))
-        return json
-    
+        return self._api_call('training', 'store_purchases', id)
+
     def policies(self):
-        url = self._build_url('policies')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('policies')
 
     def policy(self, id):
-        url = self._build_url('policies', id)
-        json = self._json(self._get(url))
-        return json
-    
+        return self._api_call('policies', id)
+
     def training_campaigns(self):
-        url = self._build_url('training', 'campaigns')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('training', 'campaigns')
 
     def training_campaign(self, id):
-        url = self._build_url('training', 'campaigns', id)
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('training', 'campaigns', id)
 
     def training_enrollments(self):
-        url = self._build_url('training', 'enrollments')
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('training', 'enrollments')
 
     def training_enrollment(self, id):
-        url = self._build_url('training', 'enrollment', id)
-        json = self._json(self._get(url))
-        return json
+        return self._api_call('training', 'enrollment', id)
