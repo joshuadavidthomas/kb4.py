@@ -9,6 +9,18 @@ else:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+packages = ['kb4']
+
+requires = [
+    'requests>=2.21.0',
+]
+
+test_requirements = [
+    'pytest>=4.4.1',
+    'pytest-cov',
+    'python-dotenv>=0.10.1'
+]
+
 setup(
     name='knowbe4.py',
     version=version,
@@ -18,21 +30,17 @@ setup(
     author='Josh Thomas',
     author_email='josh@joshuadavidthomas.com',
     url='https://github.com/elderlydoofus/knowbe4.py',
-    install_requires=[
-        'requests>=2.21.0',
-        'python-dotenv>=0.10.1',
-    ],
-    tests_require=[
-        'pytest',
-        'vcrpy',
-    ],
+    install_requires=requires,
+    tests_require=test_requirements,
     license='LICENSE.md',
-    packages=['kb4'],
+    packages=packages,
+    keywords=['knowbe4', 'knowbe4.py'],
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
+        'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6'
     ],
 )
