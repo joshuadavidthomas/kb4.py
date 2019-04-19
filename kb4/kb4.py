@@ -131,7 +131,7 @@ class KnowBe4(object):
         url = self._build_url('training', 'store_purchases', id)
         json = self._json(self._get(url))
         return json
-    '''
+    
     def policies(self):
         url = self._build_url('policies')
         json = self._json(self._get(url))
@@ -141,7 +141,7 @@ class KnowBe4(object):
         url = self._build_url('policies', id)
         json = self._json(self._get(url))
         return json
-    '''
+    
     def training_campaigns(self):
         url = self._build_url('training', 'campaigns')
         json = self._json(self._get(url))
@@ -151,7 +151,7 @@ class KnowBe4(object):
         url = self._build_url('training', 'campaigns', id)
         json = self._json(self._get(url))
         return json
-    '''
+
     def training_enrollments(self):
         url = self._build_url('training', 'enrollments')
         json = self._json(self._get(url))
@@ -161,4 +161,3 @@ class KnowBe4(object):
         url = self._build_url('training', 'enrollment', id)
         json = self._json(self._get(url))
         return json
-    '''
