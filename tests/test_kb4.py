@@ -140,6 +140,7 @@ def user_info():
         'custom_date_2'
     ]
 
+
 @fixture
 def groups_info():
     return [
@@ -475,7 +476,6 @@ def training_enrollment_info():
     ]
 
 
-
 @vcr.use_cassette('tests/cassettes/account_info.yml')
 def test_account_info(account_info):
     """Tests an API call to get KnowBe4 account info."""
@@ -591,7 +591,8 @@ def test_phishing_campaign_security_test_info(phishing_campaign_security_test_in
 @vcr.use_cassette('tests/cassettes/phishing_campaign_security_test_recipients_info.yml')
 def test_phishing_campaign_security_test_recipients_info(phishing_campaign_security_test_recipients_info):
 
-    kb4 = KnowBe4(KB4_API_KEY).phishing_campaign_security_test_recipients(1962421)
+    kb4 = KnowBe4(
+        KB4_API_KEY).phishing_campaign_security_test_recipients(1962421)
 
     assert isinstance(kb4, list)
     assert set(phishing_campaign_security_test_recipients_info).issubset(
@@ -601,7 +602,8 @@ def test_phishing_campaign_security_test_recipients_info(phishing_campaign_secur
 @vcr.use_cassette('tests/cassettes/phishing_campaign_security_test_recipient_info.yml')
 def test_phishing_campaign_security_test_recipient_info(phishing_campaign_security_test_recipient_info):
 
-    kb4 = KnowBe4(KB4_API_KEY).phishing_campaign_security_test_recipient(1962421, 447217478)
+    kb4 = KnowBe4(KB4_API_KEY).phishing_campaign_security_test_recipient(
+        1962421, 447217478)
 
     assert isinstance(kb4, dict)
     assert set(phishing_campaign_security_test_recipient_info).issubset(
@@ -627,6 +629,7 @@ def test_store_purchase_info(store_purchase_info):
     assert set(store_purchase_info).issubset(
         kb4.keys()), "All keys should be in the response"
 
+
 '''
 @vcr.use_cassette('tests/cassettes/policies_info.yml')
 def test_policies_info(policies_info):
@@ -648,6 +651,7 @@ def test_policy_info(policy_info):
         kb4.keys()), "All keys should be in the response"
 '''
 
+
 @vcr.use_cassette('tests/cassettes/training_campaigns_info.yml')
 def test_training_campaigns_info(training_campaigns_info):
 
@@ -666,6 +670,7 @@ def test_training_campaign_info(training_campaign_info):
     assert isinstance(kb4, dict)
     assert set(training_campaign_info).issubset(
         kb4.keys()), "All keys should be in the response"
+
 
 '''
 @vcr.use_cassette('tests/cassettes/training_enrollments_info.yml')
