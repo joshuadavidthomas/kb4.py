@@ -1,8 +1,8 @@
-# knowbe4.py: A Python wrapper for the KnowBe4 API
+# kb4.py: A Python wrapper for the KnowBe4 API
 
-![KnowBe4](knowbe4.jpg)
+![KnowBe4 logo](knowbe4.jpg)
 
-knowbe4.py is a simple Python wrapper for the KnowBe4 reporting API.
+kb4.py is a simple Python wrapper for the KnowBe4 reporting API.
 
 For more information on the API, please visit the [KnowBe4 API documentation](https://developer.knowbe4.com/).
 
