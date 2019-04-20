@@ -26,6 +26,7 @@ install_dependencies:
   script:
     - apt-get update -qy
     - pip install -r requirements.txt
+    - pip install -r requirements-dev.txt
     - pip install codecov
   artifacts:
     paths:
