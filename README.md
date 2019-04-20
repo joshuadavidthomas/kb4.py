@@ -58,4 +58,4 @@ Josh Thomas - josh@joshuadavidthomas.com
 
 Distributed under the MIT license. See `LICENSE` for more information.
 
-[https://github.com/elderlydoofus/knowbe4.py](https://github.com/elderlydoofus/knowbe4.py)
+[https://github.com/elderlydoofus/kb4.py](https://github.com/elderlydoofus/kb4.py)
