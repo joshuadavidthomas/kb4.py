@@ -9,7 +9,7 @@ For more information on the API, please visit the [KnowBe4 API documentation](ht
 ## Installation
 
 ```bash
-pip install knowbe4.py
+pip install kb4.py
 ```
 
 ## Usage
