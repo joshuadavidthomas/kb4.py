@@ -22,7 +22,7 @@ test_requirements = [
 ]
 
 setup(
-    name='knowbe4.py',
+    name='kb4.py',
     version=version,
     description='A simple Python wrapper for the KnowBe4 API',
     long_description=long_description,
@@ -34,7 +34,7 @@ setup(
     tests_require=test_requirements,
     license='LICENSE.md',
     packages=packages,
-    keywords=['knowbe4', 'knowbe4.py'],
+    keywords=['knowbe4', 'kb4.py'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: MIT License',
