@@ -29,6 +29,14 @@ class KnowBe4(object):
             __url_cache__[key] = '/'.join(parts)
         return __url_cache__[key]
 
+    def _append_parameters(self, url, *args, **kwargs):
+        parameters = []
+        for i in kwargs:
+            parameters.append(str(i) + "=" + str(kwargs[i]))
+        parameters = '&'.join(parameters)
+        url = url + '?' + parameters
+        return url
+
     def _check_token(self):
         if not self._token:
             raise ConfigurationError('No API Token set.')
@@ -59,6 +67,8 @@ class KnowBe4(object):
 
     def _api_call(self, *args, **kwargs):
         url = self._build_url(*args)
+        if kwargs:
+            url = self._append_parameters(url=url, **kwargs)
         json = self._json(self._get(url))
         return json
 
