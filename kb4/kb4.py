@@ -68,6 +68,9 @@ class KnowBe4(object):
     def _api_call(self, *args, **kwargs):
         url = self._build_url(*args)
         if kwargs:
+            for k in kwargs:
+                if kwargs[k] is None:
+                    del kwargs[k]
             url = self._append_parameters(url=url, **kwargs)
         json = self._json(self._get(url))
         return json
@@ -75,11 +78,38 @@ class KnowBe4(object):
     def account(self):
         return self._api_call('account')
 
-    def users(self):
-        return self._api_call('users')
+    def users(self, page=None, per_page=None, status=None, group_id=None, expand=None):
+        parameters = {}
+        if page:
+            parameters['page'] = page
+        if per_page:
+            parameters['per_page'] = per_page
+        if status:
+            if status is 'active':
+                parameters['status'] = status
+            elif status is 'archived':
+                parameters['status'] = status
+            else:
+                raise TypeError
+        if group_id:
+            parameters['group_id'] = group_id
+        if expand:
+            if expand is 'group':
+                parameters['expand'] = expand
+            else:
+                raise TypeError
+        return self._api_call('users', **parameters)
 
-    def groups(self):
-        return self._api_call('groups')
+    def groups(self, status=None):
+        parameters = {}
+        if status:
+            if status is 'active':
+                parameters['status'] = status
+            elif status is 'archived':
+                parameters['status'] = status
+            else:
+                raise TypeError
+        return self._api_call('groups', **parameters)
 
     def group(self, id):
         return self._api_call('groups', id)
@@ -90,8 +120,11 @@ class KnowBe4(object):
     def user(self, id):
         return self._api_call('users', id)
 
-    def phishing_campaigns(self):
-        return self._api_call('phishing', 'campaigns')
+    def phishing_campaigns(self, campaign_id=None):
+        parameters = {}
+        if campaign_id:
+            parameters['campaign_id'] = campaign_id
+        return self._api_call('phishing', 'campaigns', **parameters)
 
     def phishing_campaign(self, id):
         return self._api_call('phishing', 'campaigns', id)
@@ -129,8 +162,15 @@ class KnowBe4(object):
     def training_campaign(self, id):
         return self._api_call('training', 'campaigns', id)
 
-    def training_enrollments(self):
-        return self._api_call('training', 'enrollments')
+    def training_enrollments(self, store_purchase_id=None, campaign_id=None, user_id=None):
+        parameters = {}
+        if store_purchase_id:
+            parameters['store_purchase_id'] = store_purchase_id
+        if campaign_id:
+            parameters['campaign_id'] = campaign_id
+        if user_id:
+            parameters['user_id'] = user_id
+        return self._api_call('training', 'enrollments', **parameters)
 
     def training_enrollment(self, id):
         return self._api_call('training', 'enrollment', id)
