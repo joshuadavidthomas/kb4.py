@@ -1,6 +1,6 @@
 # kb4.py: A Python wrapper for the KnowBe4 API
 
-![KnowBe4 logo](knowbe4.jpg)
+![PyPI](https://img.shields.io/pypi/v/kb4.py.svg?style=flat-square) ![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/elderlydoofus/kb4.py.svg?style=flat-square)
 
 kb4.py is a simple Python wrapper for the KnowBe4 reporting API.
 
