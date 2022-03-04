@@ -1,3 +1,5 @@
+# 🚨 This project is no longer actively maintained. 🚨
+
 # kb4.py: A Python wrapper for the KnowBe4 API
 
 ![KnowBe4 logo](knowbe4.jpg)
